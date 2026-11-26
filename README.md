@@ -31,7 +31,6 @@ Incluye aquí solo las funciones que puedas comprobar en la aplicación.
 - JDBC
 - Apache NetBeans como entorno de desarrollo
 
-**Contenido del repositorio**
 
 **Contenido del repositorio**
 
