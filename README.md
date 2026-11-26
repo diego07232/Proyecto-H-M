@@ -33,8 +33,12 @@ Incluye aquí solo las funciones que puedas comprobar en la aplicación.
 
 **Contenido del repositorio**
 
-- `TIENDA_ONLINE_INSTALACION_NUEVA (1).sql`: script de instalación de la base de datos.
-- `Ventas_App_Escritorio_IMAGENES (1).zip`: archivo comprimido con el proyecto Java.
+**Contenido del repositorio**
+
+- `pom.xml`: configuración del proyecto Maven.
+- `src/main/java/com/hm/ventas`: código fuente de la aplicación.
+- `sql/`: scripts para crear o configurar la base de datos.
+- `LEEME.txt`: información adicional del proyecto.
 
 **Requisitos para ejecutar el proyecto**
 
