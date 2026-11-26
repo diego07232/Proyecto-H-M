@@ -1,0 +1,72 @@
+H&M VENTAS ONLINE - APLICACIÓN DE ESCRITORIO (Java Swing + MySQL)
+==================================================================
+
+Implementa las 7 pantallas del prototipo de Figma:
+  1. Catálogo (filtros por categoría, talla, color y precio; buscador)
+  2. Detalle de producto (color, talla, stock, cantidad)
+  3. Carrito (cantidades, quitar, envío gratis desde S/ 150)
+  4. Checkout: datos de entrega + Boleta (DNI) o Factura (RUC)
+  5. Pago con tarjeta (validación Luhn, vencimiento y CVV; pago SIMULADO)
+  6. Confirmación de pedido (ver boleta/factura con IGV 18 %)
+  7. Seguimiento del envío (Pendiente -> Asignado -> En camino -> Entregado)
+  + Menú "Cuenta": Mis pedidos, Mis datos, Cerrar sesión
+
+Usa las clases del proyecto (cliente, Producto, Categoria, Pedido,
+DetallePedido, Pago, Boleta, Factura, Envio, Repartidor) y la base de
+datos tienda_online.
+
+PASOS PARA EJECUTARLA
+---------------------
+1. Inicia el servicio MySQL de tu equipo y abre su conexión en Workbench.
+   Si es una instalación nueva, abre sql/TIENDA_ONLINE_COMPLETA_FINAL.sql y
+   ejecuta todo el archivo con el botón del rayo. Si ya tienes cargada esta
+   misma base y sus productos, pasa directamente al siguiente paso.
+2. En la misma conexión, ejecuta todo sql/02_IMAGENES_CATALOGO.sql.
+   El catálogo suministrado debe devolver 50 combinaciones con imagen y
+   cero filas en la consulta de colores sin imagen. Puedes repetir este
+   segundo script: conserva las imágenes existentes.
+3. En db.properties (carpeta Ventas) escribe el usuario y contraseña de
+   TU servidor en db.user y db.password. Ajusta localhost:3306 en db.url
+   si MySQL usa otro puerto o equipo. Guarda los cambios. Las variables
+   TIENDA_DB_URL, TIENDA_DB_USER y TIENDA_DB_PASSWORD tienen prioridad.
+4. Descomprime todo el ZIP antes de abrirlo. En NetBeans usa File > Open
+   Project y selecciona la carpeta Ventas que contiene pom.xml. Haz clic
+   derecho sobre ese proyecto y elige Run. Con Java 17 o posterior también
+   puedes abrir target/Ventas-1.0-SNAPSHOT.jar. El JAR incluye el driver.
+5. Comprueba que la barra inferior indique «Conectado a MySQL». En la base
+   suministrada, «Todo el catálogo» reúne 50 tarjetas: 25 modelos por dos
+   colores, repartidos en seis categorías. Cada tarjeta reúne dos tallas.
+
+VERIFICACIÓN EN TU EQUIPO
+-------------------------
+Desde la carpeta Ventas, con Java 17 o posterior:
+  java -jar target/Ventas-1.0-SNAPSHOT.jar --verificar
+Esta prueba solo lee la base. Informa categorías, tarjetas, variantes e
+imágenes decodificadas. Resultado esperado con el SQL entregado: 6, 50,
+100 y 50, respectivamente. En un catálogo ampliado los totales variarán.
+
+Si aparece «Communications link failure», comprueba que la conexión de
+Workbench funcione con el mismo servidor y puerto de db.url.
+«Access denied» indica que debes revisar usuario, contraseña o permisos.
+Si falta la tabla imagen_producto_color, ejecuta el segundo script.
+Tras corregir el problema puedes pulsar Reintentar o ejecutar nuevamente.
+
+IMÁGENES
+--------
+Las imágenes son representaciones ilustrativas generadas para este proyecto.
+La tabla imagen_producto_color guarda un JPEG por producto y color (MEDIUMBLOB).
+Las tallas comparten la misma imagen. Catálogo, detalle y carrito leen esa
+imagen desde MySQL. Para reemplazar una ilustración, edita su campo contenido
+con un JPEG o PNG en un editor de BLOB y vuelve a abrir la aplicación.
+Si un producto nuevo aún no tiene imagen, aparece una silueta de respaldo.
+
+Al pagar se guardan en la BD: cliente, dirección, venta, detalle_venta y pago,
+y se descuenta el stock de variante_producto (todo en una sola transacción).
+
+La demo de consola original sigue disponible en com.hm.ventas.Main.
+
+ESTRUCTURA NUEVA
+----------------
+src/main/java/com/hm/ventas/datos/  -> acceso a la BD (TiendaRepositorio) y modelos del catálogo
+src/main/java/com/hm/ventas/ui/     -> ventana principal (App), tema visual y las 7 pantallas
+db.properties                       -> datos de conexión a MySQL
