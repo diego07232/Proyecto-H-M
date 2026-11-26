@@ -48,11 +48,11 @@ Incluye aquí solo las funciones que puedas comprobar en la aplicación.
 
 **Instalación y ejecución**
 
-1. Descargar y descomprimir `Ventas_App_Escritorio_IMAGENES (1).zip`.
+1. Descargar o clonar este repositorio.
 2. Abrir MySQL Workbench.
-3. Ejecutar el script `TIENDA_ONLINE_INSTALACION_NUEVA (1).sql` para crear la base de datos.
-4. Abrir en NetBeans la carpeta del proyecto que contiene el archivo `pom.xml`.
-5. Configurar la conexión a MySQL con los datos de tu instalación local.
+3. Abrir y ejecutar el script de instalación ubicado en la carpeta `sql/`.
+4. Abrir en NetBeans la carpeta raíz del proyecto, donde se encuentra el archivo `pom.xml`.
+5. Configurar la conexión a MySQL con las credenciales de la instalación local.
 6. Ejecutar el proyecto desde NetBeans.
 
 **Alcance y estado**
