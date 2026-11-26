@@ -20,7 +20,6 @@ Desarrollar un prototipo que permita representar las funciones principales del p
 - Registrar ventas y pedidos.
 - Organizar la información mediante una base de datos MySQL.
 
-Incluye aquí solo las funciones que puedas comprobar en la aplicación.
 
 **Tecnologías utilizadas**
 
@@ -65,7 +64,7 @@ No subir contraseñas, claves de conexión, datos personales ni información rea
 
 **Integrantes**
 
--Gutierrez Campos, Faridh Ernesto  
--Torres Neira, Diego Antonio 
--Olivera Anapan, Yasuri Celeste 
--Zavala Maldonado, Enrique Alessandro 
+- Gutierrez Campos, Faridh Ernesto
+- Torres Neira, Diego Antonio
+- Olivera Anapan, Yasuri Celeste
+- Zavala Maldonado, Enrique Alessandro
